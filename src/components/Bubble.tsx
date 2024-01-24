@@ -77,6 +77,7 @@ const Bubble = ({ currentMessage, activeRoom }: BubbleProps) => {
           className="small mb-1 text-start"
           style={{
             color: position === "right" ? "#FFF" : "#343A3C",
+            whiteSpace: "pre-line",
           }}
         >
           {currentMessage.text}
