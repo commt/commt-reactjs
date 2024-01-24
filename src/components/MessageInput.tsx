@@ -197,20 +197,16 @@ const MessageInput = ({
             className="rounded-circle"
           />
         )}
-        <input
-          type="text"
-          className="form-control form-control-lg rounded-pill"
-          id="exampleFormControlInput2"
-          placeholder="Type message"
+        <textarea
+          className="form-control"
+          id="chatMessageInput"
+          placeholder="Type your message"
           value={text}
           onChange={(e) => {
             setText(e.target.value);
           }}
           onFocus={() => setIsEmojiOpen(false)}
-          style={{
-            backgroundColor: "#ECEDED",
-            color: "#343A3C",
-          }}
+          rows={text.length > 80 || text.split("\n").length > 1 ? 2 : 1}
         />
         {/* // TODO: Enable here once file sharing activated
       <a className="ms-1 text-muted" href="#!">
