@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { KeyboardEvent, useEffect, useRef, useState } from "react";
 import { MDBIcon } from "mdb-react-ui-kit";
 import Avatar from "./Avatar";
 import { useCommtContext } from "../context/Context";
@@ -186,6 +186,14 @@ const MessageInput = ({
     setText((prevText) => prevText + emoji);
   };
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    // Check if the "Enter" key is pressed without the "Shift" key
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      text && text.trim().length > 0 && handleSend();
+    }
+  };
+
   return (
     <div className="position-relative">
       <div className="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
@@ -207,6 +215,7 @@ const MessageInput = ({
           }}
           onFocus={() => setIsEmojiOpen(false)}
           rows={text.length > 80 || text.split("\n").length > 1 ? 2 : 1}
+          onKeyDown={handleKeyDown}
         />
         {/* // TODO: Enable here once file sharing activated
       <a className="ms-1 text-muted" href="#!">
