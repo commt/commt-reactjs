@@ -38,3 +38,11 @@
   border-radius: 16px;
   transition: 1s;
 }
+
+#chatMessageInput {
+  background-color: #eceded;
+  color: #343a3c;
+  border-radius: 16px;
+  line-height: 20px;
+  padding-top: 8px;
+}
