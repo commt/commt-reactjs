@@ -58,7 +58,7 @@ const MessageInput = ({
         return participants.every((id) => room.participants.includes(id));
       })?.roomId;
       // Set new roomId as the selected room.
-      setSelectedRoom({ roomId: newRoomId })(dispatch);
+      newRoomId && setSelectedRoom({ roomId: newRoomId })(dispatch);
     }
   }, [rooms]);
 
